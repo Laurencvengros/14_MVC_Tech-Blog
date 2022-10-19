@@ -15,8 +15,8 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [1]
-            }
+                len: [1],
+            },
         },
         content: {
             type: DataTypes.STRING,
@@ -27,7 +27,7 @@ Post.init(
             references: {
                 model: 'user',
                 key: 'id'
-            }
+            },
         },
     },
     {
@@ -35,7 +35,7 @@ Post.init(
         freezeTableName: true,
         underscored: true,
         modelName: 'post'
-    }
+    },
 );
 
 module.exports = Post;

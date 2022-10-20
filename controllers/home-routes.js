@@ -15,7 +15,7 @@ router.get('/',(req, res) => {
                 }
             },
             {
-                mdoel: User,
+                model: User,
                 attributes: ['username']
             }
         ]
@@ -63,4 +63,16 @@ router.get('/post/:id', (req,res) =>{
         console.log(err);
         res.status(500).json(err);
     });
+});
+
+router.get('/login', (req,res) =>{
+    if(req.session.loggedIn){
+        res.redirect('/');
+        return;
+    }
+    res.render('login');
+});
+
+router.get('/signup', (req,res)=>{
+    res.render('signup');
 })

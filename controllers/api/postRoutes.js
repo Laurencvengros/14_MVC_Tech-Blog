@@ -83,7 +83,7 @@ router.put('/:id', withAuth, async (req,res) =>{
             }
         );
         if(!updatePost){
-            res.status(404).json({message: 'no post witht aht ID'});
+            res.status(404).json({message: 'no post witht that ID'});
             return;
         }
         res.status(200).json(updatePost);

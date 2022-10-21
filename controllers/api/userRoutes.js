@@ -64,3 +64,38 @@ router.post('/', async (req,res) =>{
     }
 });
 
+router.post('/login', async (req,res) =>{
+    try{
+        const userData = await User.findOne({
+            where: {useranme: req.body.username},
+        });
+        if(!userData){
+            res.status(404).json({message: 'invalid username'});
+            return;
+        }
+        const validatePass = await userData.checkPassword(req.body.password);
+        if(!validatePass){
+            res.status(404).json({message: 'invalid password'});
+            return;
+        }
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.username = userData.username;
+            req.session.logged_in = true;
+      
+            res.json({ user: userData, message: 'log in success!' });
+        });
+    }catch(err){
+        res.status(500).json(err);
+    }
+});
+
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).end();
+    }
+  });

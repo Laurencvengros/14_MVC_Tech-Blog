@@ -1,4 +1,4 @@
-//https://pacific-crag-42057.herokuapp.com/  
+//https://protected-ocean-66735.herokuapp.com/  
 
 const Sequelize = require('sequelize');
 require('dotenv').config();

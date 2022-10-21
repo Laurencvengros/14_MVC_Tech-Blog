@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "none",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/seed.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,7 @@
   "homepage": "https://github.com/Laurencvengros/14_MVC_Tech-Blog#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
-    "connect-session-sequelize": "^6.1.1",
+    "connect-session-sequelize": "^7.1.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
@@ -29,5 +30,8 @@
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.5.0"
-  }
+  },
+  "keywords": [
+    "[]"
+  ]
 }
